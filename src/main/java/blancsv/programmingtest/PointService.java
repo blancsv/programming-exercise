@@ -55,9 +55,9 @@ public class PointService {
 
 		/*
 		 * Create a new comparator to order the points by their distance with respect to
-		 * the givenPoint in ascending order (the farthest will be the last). There is
-		 * an additional check (line 68) in order to allow multiple points with the same
-		 * distance to be added in the closestNeighbours TreeSet.
+		 * the givenPoint in ascending order (the farthest will be the last). It allows
+		 * multiple points with the same distance to be added in the closestNeighbours
+		 * TreeSet.
 		 */
 		Comparator<Point> distanceComparator = (p1, p2) -> {
 			int result = Double.compare(p1.getDistanceFromPoint(givenPoint), p2.getDistanceFromPoint(givenPoint));
@@ -75,9 +75,9 @@ public class PointService {
 		Double worstNeighbourDistance, currentPointDistance;
 
 		/*
-		 * ForEach loop on all the points currently saved in the general setOfPoints As
-		 * the elements are sorted in ascending order, we are sure that if 2 points are
-		 * equidistant from the givenPoint, we return the smallest first.
+		 * As the elements of setOfPoints are sorted in ascending order, we are sure
+		 * that if 2 points are equidistant from the givenPoint, we add the smallest
+		 * first.
 		 */
 		for (Point currentPoint : setOfPoints) {
 			if (closestNeighbours.size() < k) {
